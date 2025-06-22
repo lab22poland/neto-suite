@@ -1,6 +1,6 @@
 ---
-description:
-globs:
+description: 
+globs: neto/*
 alwaysApply: false
 ---
 # NETo SwiftUI Application Rules

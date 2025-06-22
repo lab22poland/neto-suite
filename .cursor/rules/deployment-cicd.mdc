@@ -1,6 +1,6 @@
 ---
-description:
-globs:
+description: building, testing, deployment, version management, release workflow, app store
+globs: 
 alwaysApply: false
 ---
 # Deployment & CI/CD Guidelines
