@@ -1,0 +1,48 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# NETo SwiftUI Application Rules
+
+⚠️ **SCOPE**: These rules apply specifically to the `neto/` folder containing the Xcode project.
+
+## Platform Support
+- **iPhone**: iOS 17.0+ (required for SwiftData)
+- **iPad**: iPadOS 17.0+ (required for SwiftData) 
+- **macOS**: macOS 14.0+ (required for SwiftData)
+
+## Key Technologies
+- **Swift**: 5.0+
+- **SwiftUI**: Primary UI framework
+- **SwiftData**: Data persistence across all platforms
+- **Xcode**: 16.4+
+
+## Code Style & Conventions
+- Follow Swift API Design Guidelines
+- Use SwiftUI best practices for multiplatform development
+- Implement platform-specific UI adaptations using `#if os(iOS)` and `#if os(macOS)` compiler directives
+- Use descriptive variable and function names
+- Prefer `private` and `fileprivate` access levels when appropriate
+
+## Architecture & Patterns
+- **MVVM Architecture**: Use SwiftUI's built-in MVVM pattern with `@StateObject`, `@ObservedObject`, and `@EnvironmentObject`
+- **SwiftData Models**: Use `@Model` for data persistence across all platforms
+- **Platform Adaptation**: NavigationSplitView for iPad/macOS, NavigationStack for iPhone
+- **Modular Design**: Separate network tools into distinct, reusable components
+
+## Dependencies & Tools
+- **Bundle Identifier**: `pl.lab22.neto`
+- **Code Signing**: Automatic signing for development
+- **Development Environment**: Xcode 16.4+
+
+## Version Constraints
+- Never lower deployment targets below iOS 17.0 or macOS 14.0 (SwiftData requirement)
+- Do not add support for tvOS, watchOS, or visionOS unless explicitly requested
+- Maintain Swift 5.0+ compatibility
+
+## Platform-Specific Requirements
+- **iOS/iPadOS**: Use appropriate interface orientations (Portrait + Landscape)
+- **macOS**: Include macOS-specific menu bar and window management
+- **Multiplatform**: Ensure feature parity across all supported platforms
+- **SwiftData**: All data models must be compatible with iOS 17.0+ and macOS 14.0+

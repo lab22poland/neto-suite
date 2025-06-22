@@ -1,0 +1,40 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Deployment & CI/CD Guidelines
+
+## App Store Distribution
+- Support for iOS App Store and Mac App Store distribution
+- Test builds on both iOS simulators and macOS before release
+- Maintain version parity across all supported platforms
+
+## Build Configuration
+- Use Xcode 16.4+ for all builds
+- Maintain consistent build settings across platforms
+- Ensure proper code signing configuration
+
+## Testing Requirements
+- All tests must pass on target platforms before deployment
+- Run tests on:
+  - macOS (running version)
+  - iPhone 16 simulator
+  - iPad Pro 11-inch (M4) simulator
+
+## Version Management
+- Coordinate version releases across all submodules
+- Update version numbers consistently
+- Tag releases in all relevant repositories
+
+## Platform-Specific Considerations
+- iOS/iPadOS: Follow App Store Review Guidelines
+- macOS: Ensure proper notarization and code signing
+- Test on minimum supported OS versions before release
+
+## Release Workflow
+1. Test all components independently
+2. Update submodule references in main repository
+3. Create coordinated release tags
+4. Submit to respective app stores
+5. Monitor deployment success

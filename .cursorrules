@@ -1,4 +1,28 @@
-# Cursor Rules
+# Cursor Rules (LEGACY - DEPRECATED)
+
+⚠️ **MIGRATION NOTICE**: This `.cursorrules` file is now deprecated according to the [official Cursor documentation](https://docs.cursor.com/context/rules). 
+
+**New Structure**: Rules have been migrated to the modern `.cursor/rules/` directory with MDC format:
+- `.cursor/rules/project-overview.mdc` - Main project overview (Always applied)
+- `.cursor/rules/swift-neto-app.mdc` - Swift/iOS specific rules (Auto-attached)
+- `.cursor/rules/testing-neto.mdc` - Testing guidelines (Auto-attached)
+- `.cursor/rules/documentation.mdc` - Documentation standards (Auto-attached)
+- `.cursor/rules/performance-security.mdc` - Performance & security (Auto-attached)
+- `.cursor/rules/deployment-cicd.mdc` - Deployment guidelines (Auto-attached)
+- `.cursor/rules/submodule-management.mdc` - Git submodule rules (Auto-attached)
+
+**Submodule-Specific Rules**:
+- `neto/.cursor/rules/neto-specific.mdc` - NETo app context
+- `netolib/.cursor/rules/netolib-specific.mdc` - Core library context
+- `netoman/.cursor/rules/netoman-specific.mdc` - Documentation context
+
+**Benefits of New Structure**:
+- **Better Performance**: Context-aware rules only load when relevant
+- **Improved Organization**: Focused, specialized rule files
+- **Team Collaboration**: Better visibility and management of rules
+- **Future-Proof**: Supports advanced features like rule types and patterns
+
+---
 
 ## Copyright & Attribution
 All code files, documentation, and project assets, unless specified otherwise in LICENSE file, must include copyright attribution to:

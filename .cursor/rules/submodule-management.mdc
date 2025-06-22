@@ -1,0 +1,34 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Git Submodule Management
+
+## Repository Structure
+- **Main Repository**: Orchestrates the entire project suite
+- **neto/**: SwiftUI application submodule (https://github.com/lab22poland/neto.git)
+- **netolib/**: Core library submodule (https://github.com/lab22poland/netolib.git)  
+- **netoman/**: Documentation submodule (https://github.com/lab22poland/netoman.git)
+
+## Git Operations
+- When looking for git history for the Xcode project, always navigate to the `neto/` folder first
+- Working directory for neto git commands: `/path/to/workspace/neto/neto/` (nested structure)
+- Use `git submodule update --remote` to update all submodules
+- Use `git submodule foreach git pull origin main` to pull latest changes
+
+## Branch Management
+- **ALL repositories use `main` branch** (never `master`)
+- Global git configuration: `git config --global init.defaultBranch main`
+- Validate with `./validate-branches.sh` script
+
+## Workflow Commands
+- Clone with submodules: `git clone --recursive <repo-url>`
+- Initialize submodules: `git submodule update --init --recursive`
+- Update specific submodule: `git submodule update --remote neto`
+
+## Submodule Best Practices
+- Commit submodule changes to their respective repositories first
+- Update main repository to point to new submodule commits
+- Coordinate releases across all components
+- Use setup script for initial configuration: `./setup-submodules.sh`

@@ -1,0 +1,30 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# NETo Project Suite Overview
+
+## Copyright & Attribution
+All code files, documentation, and project assets, unless specified otherwise in LICENSE file, must include copyright attribution to:
+- **Author**: Sergii Solianyk
+- **Email**: sergii.solyanik@lab22.pl
+- **Format**: "© 2025 Lab22 Poland Sp. z o.o." or "Copyright (c) 2025 Lab22 Poland Sp. z o.o."
+
+## Project Overview
+NETo (Network Engineer Tools) is a comprehensive project suite consisting of three independent components, each with its own git repository:
+
+**Project Structure:**
+- `neto/` - Main SwiftUI application for iOS, iPadOS, and macOS - **Independent git repository**
+- `netolib/` - Core networking library - **Independent git repository**
+- `netoman/` - Documentation and manual repository - **Independent git repository**
+
+**Git Repository Structure:**
+- Main repository: Orchestrates the entire project suite using git submodules
+- Each component repository can be developed independently
+- Submodule references allow version pinning and coordinated releases
+
+**Branch Naming Convention:**
+- All repositories use `main` as the default branch (never `master`)
+- Consistent branch naming across all components
+- Git configured globally: `git config --global init.defaultBranch main`

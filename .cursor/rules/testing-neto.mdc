@@ -1,0 +1,33 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# NETo Testing Guidelines
+
+## Testing Framework
+- Use **XCTest** framework for all testing
+- Write unit tests for all network utility functions
+- Include UI tests for critical user workflows
+
+## Test Coverage
+- Test on both iOS simulator and macOS for multiplatform compatibility
+- Ensure all network utility functions have corresponding unit tests
+- Cover edge cases and error scenarios
+
+## Default Test Execution
+Run all tests on the following platforms unless explicitly stated otherwise:
+- **macOS**: Running macOS version
+- **iOS**: iPhone 16 simulator
+- **iPadOS**: iPad Pro 11-inch (M4) simulator
+
+## Test Organization
+- Group tests by functionality
+- Use descriptive test method names
+- Follow the Arrange-Act-Assert pattern
+- Mock external dependencies appropriately
+
+## Performance Testing
+- Include performance tests for network operations
+- Test battery usage optimization scenarios
+- Validate offline functionality where applicable

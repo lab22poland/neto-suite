@@ -1,0 +1,33 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Documentation Standards
+
+## Swift Documentation
+- Document all public APIs with Swift documentation comments (`///`)
+- Include usage examples for network tools
+- Document platform-specific behavior and limitations
+
+## Project Documentation
+- Maintain README.md with build and setup instructions
+- Include comprehensive setup guides for development environment
+- Document submodule structure and workflow
+
+## Copyright Attribution
+- Include copyright attribution in all documentation files
+- Format: "© 2025 Lab22 Poland Sp. z o.o." or "Copyright (c) 2025 Lab22 Poland Sp. z o.o."
+- Author: Sergii Solianyk
+- Email: sergii.solyanik@lab22.pl
+
+## Documentation Best Practices
+- Use clear, concise language
+- Include code examples where appropriate
+- Maintain consistent formatting across all documentation
+- Update documentation when making code changes
+
+## Multi-component Documentation
+- Each submodule (`neto/`, `netolib/`, `netoman/`) maintains its own documentation
+- Main repository documentation focuses on project orchestration and setup
+- Cross-reference between component documentation as needed
