@@ -41,7 +41,9 @@ Each submodule has its own context-aware rules:
 
 ## Migration from Legacy
 
-The legacy `.cursorrules` file has been deprecated but remains functional. All rules have been reorganized into the new structure for better performance and maintainability.
+The legacy `.cursorrules` file has been completely migrated to the new structure and removed from the project. All rules are now organized in the modern `.cursor/rules/` format for better performance and maintainability.
+
+**Historical Note**: The original `.cursorrules` content is preserved in git history (commits before migration) for reference if needed.
 
 ## Usage
 
