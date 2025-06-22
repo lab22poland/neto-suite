@@ -1,0 +1,47 @@
+# NETo Project Suite - Git Configuration Standards
+# Apply these settings to maintain consistency across all repositories
+# 
+# Usage:
+#   git config --global include.path ~/.gitconfig-neto
+#   OR copy these settings to your global .gitconfig
+
+[init]
+    # Always use 'main' as the default branch name
+    defaultBranch = main
+
+[pull]
+    # Use rebase instead of merge for cleaner history
+    rebase = false
+
+[push]
+    # Push current branch to upstream branch with same name
+    default = simple
+
+[core]
+    # Automatically handle line endings
+    autocrlf = input
+    
+[branch]
+    # Automatically set up tracking when creating new branches
+    autosetupmerge = always
+    autosetuprebase = always
+
+[merge]
+    # Use more informative merge conflict markers
+    conflictstyle = diff3
+
+[alias]
+    # Useful aliases for submodule management
+    sup = submodule update --remote --merge
+    spush = push --recurse-submodules=check
+    spull = "!git pull && git submodule update --init --recursive"
+    
+    # Branch management
+    main = checkout main
+    co = checkout
+    br = branch
+    st = status
+    
+    # Logging
+    lg = log --oneline --decorate --graph
+    last = log -1 HEAD 

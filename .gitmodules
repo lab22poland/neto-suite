@@ -1,0 +1,11 @@
+[submodule "neto"]
+	path = neto
+	url = https://github.com/lab22poland/neto.git
+
+[submodule "netoman"]
+	path = netoman
+	url = https://github.com/lab22poland/netoman.git
+
+[submodule "netolib"]
+	path = netolib
+	url = https://github.com/lab22poland/netolib.git 

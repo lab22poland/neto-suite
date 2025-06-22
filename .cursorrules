@@ -1,0 +1,108 @@
+# Cursor Rules
+
+## Copyright & Attribution
+All code files, documentation, and project assets, unless specified otherwise in LICENSE file, must include copyright attribution to:
+- **Author**: Sergii Solianyk
+- **Email**: sergii.solyanik@lab22.pl
+- **Format**: "© 2025 Lab22 Poland Sp. z o.o." or "Copyright (c) 2025 Lab22 Poland Sp. z o.o."
+
+## Project Overview
+NETo (Network Engineer Tools) is a multiplatform SwiftUI application designed for network engineers, providing essential tools and utilities for network management and troubleshooting. The application supports iPhone, iPad, and macOS platforms.
+
+**⚠️ SCOPE: These rules apply specifically to the `neto/` folder containing the Xcode project.**
+
+**Project Structure:**
+- `neto/` - Main SwiftUI application (covered by these rules) - **Has its own git repository**
+- `netolib/` - Separate library (has its own rules)
+- `netoman/` - Documentation hosting (has its own rules)
+
+**Git Repository Location:**
+- The NETo Xcode project is located in the `neto/` subdirectory and has its own independent git repository
+- When looking for git history, commits, or version control operations related to the Xcode project, always navigate to the `neto/` folder first
+- The working directory for git commands should be `/path/to/workspace/neto/neto/` (note the nested structure)
+
+**Supported Platforms:**
+- iPhone (iOS 17.0+)
+- iPad (iPadOS 17.0+) 
+- macOS (macOS 14.0+)
+
+**Key Technologies:**
+- Swift 5.0+
+- SwiftUI (primary UI framework)
+- SwiftData (data persistence)
+- Xcode 16.4+
+
+## Code Style & Conventions
+**For `neto/` Xcode Project Only:**
+- Follow Swift API Design Guidelines
+- Use SwiftUI best practices for multiplatform development
+- Implement platform-specific UI adaptations using `#if os(iOS)` and `#if os(macOS)` compiler directives
+- Use descriptive variable and function names
+- Prefer `private` and `fileprivate` access levels when appropriate
+
+## Architecture & Patterns
+**For `neto/` Xcode Project Only:**
+- **MVVM Architecture**: Use SwiftUI's built-in MVVM pattern with `@StateObject`, `@ObservedObject`, and `@EnvironmentObject`
+- **SwiftData Models**: Use `@Model` for data persistence across all platforms
+- **Platform Adaptation**: NavigationSplitView for iPad/macOS, NavigationStack for iPhone
+- **Modular Design**: Separate network tools into distinct, reusable components
+
+## Dependencies & Tools
+**For `neto/` Xcode Project Only:**
+- **Minimum Deployment Targets:**
+  - iOS/iPadOS: 17.0 (required for SwiftData)
+  - macOS: 14.0 (required for SwiftData)
+- **Development Environment**: Xcode 16.4+
+- **Bundle Identifier**: `pl.lab22.neto`
+- **Code Signing**: Automatic signing for development
+
+## Testing Guidelines
+**For `neto/` Xcode Project Only:**
+- Write unit tests for all network utility functions
+- Use XCTest framework for testing
+- Test on both iOS simulator and macOS for multiplatform compatibility
+- Include UI tests for critical user workflows
+- **Default Test Execution**: Run all tests on the running macOS version, iPhone 16 simulator, and iPad Pro 11-inch (M4) simulator unless explicitly stated otherwise
+
+## Documentation Standards
+**For `neto/` Xcode Project Only:**
+- Document all public APIs with Swift documentation comments (`///`)
+- Include usage examples for network tools
+- Maintain README.md with build and setup instructions
+- Document platform-specific behavior and limitations
+
+## Performance Considerations
+**For `neto/` Xcode Project Only:**
+- Optimize network operations for mobile battery usage
+- Use async/await for network requests
+- Implement proper error handling for network failures
+- Consider offline functionality where applicable
+
+## Security Guidelines  
+**For `neto/` Xcode Project Only:**
+- Use App Sandbox on macOS (already configured)
+- Implement secure network communication (TLS/SSL)
+- Follow iOS security best practices for network tools
+- Protect sensitive network credentials and configurations
+
+## Deployment & CI/CD
+**For `neto/` Xcode Project Only:**
+- Support for iOS App Store and Mac App Store distribution
+- Test builds on both iOS simulators and macOS before release
+- Maintain version parity across all supported platforms
+
+## Additional Rules
+**Platform-Specific Requirements (neto/ folder only):**
+- **iOS/iPadOS**: Use appropriate interface orientations (Portrait + Landscape)
+- **macOS**: Include macOS-specific menu bar and window management
+- **Multiplatform**: Ensure feature parity across all supported platforms
+- **SwiftData**: All data models must be compatible with iOS 17.0+ and macOS 14.0+
+
+**Version Constraints (neto/ folder only):**
+- Never lower deployment targets below iOS 17.0 or macOS 14.0 (SwiftData requirement)
+- Do not add support for tvOS, watchOS, or visionOS unless explicitly requested
+- Maintain Swift 5.0+ compatibility
+
+**Folder-Specific Notes:**
+- `netolib/` - Separate library with its own development rules and constraints
+- `netoman/` - Documentation hosting with its own guidelines and requirements 
