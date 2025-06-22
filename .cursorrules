@@ -14,7 +14,7 @@ NETo (Network Engineer Tools) is a multiplatform SwiftUI application designed fo
 **Project Structure:**
 - `neto/` - Main SwiftUI application (covered by these rules) - **Has its own git repository**
 - `netolib/` - Separate library (has its own rules)
-- `netoman/` - Documentation hosting (has its own rules)
+- `netoman/` - Documentation and manual repository (has its own rules)
 
 **Git Repository Location:**
 - The NETo Xcode project is located in the `neto/` subdirectory and has its own independent git repository
@@ -105,4 +105,4 @@ NETo (Network Engineer Tools) is a multiplatform SwiftUI application designed fo
 
 **Folder-Specific Notes:**
 - `netolib/` - Separate library with its own development rules and constraints
-- `netoman/` - Documentation hosting with its own guidelines and requirements 
+- `netoman/` - Documentation and manual repository with its own guidelines and requirements 

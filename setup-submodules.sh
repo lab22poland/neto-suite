@@ -43,7 +43,7 @@ git add .
 git commit -m "Initial commit: Add NETo project suite with submodules
 
 - neto: SwiftUI application for iOS/iPadOS/macOS
-- netoman: Documentation and management tools  
+- netoman: Documentation and manual repository
 - netolib: Core networking library
 "
 

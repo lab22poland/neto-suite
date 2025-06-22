@@ -17,9 +17,9 @@ This repository serves as the main project hub, containing three independent com
 - **Technologies**: TBD
 - **Repository**: https://github.com/lab22poland/netolib.git
 
-### 🌐 [netoman/](./netoman) - Documentation & Management
-- **Description**: Documentation hosting and project management tools
-- **Technologies**: TBD
+### 📚 [netoman/](./netoman) - Documentation & Manual
+- **Description**: Comprehensive documentation, manuals, and user guides
+- **Technologies**: Markdown, Documentation generators
 - **Repository**: https://github.com/lab22poland/netoman.git
 
 ## Getting Started
@@ -61,7 +61,7 @@ Each component can be developed independently:
 
 1. **neto/**: Swift/Xcode development
 2. **netolib/**: Library development
-3. **netoman/**: Documentation and tooling
+3. **netoman/**: Documentation and manual creation
 
 ### Branch Naming Convention
 
