@@ -5,7 +5,13 @@ alwaysApply: false
 ---
 # NETo SwiftUI Application Rules
 
-⚠️ **SCOPE**: These rules apply specifically to the `neto/` folder containing the Xcode project.
+⚠️ **SCOPE**: These rules apply specifically to the neto submodule containing the Xcode project.
+
+## Filesystem Context
+- **Submodule Location**: `neto/`
+- **App Source Code**: `neto/neto/` (double neto!)
+- **Xcode Project**: `neto/neto.xcodeproj`
+- **Relative Paths**: All paths relative to project root
 
 ## Platform Support
 - **iPhone**: iOS 17.0+ (required for SwiftData)
