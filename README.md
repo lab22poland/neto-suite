@@ -8,7 +8,8 @@ This repository serves as the main project hub, containing three independent com
 
 ### 🚀 [neto/](./neto) - SwiftUI Application
 - **Description**: Multiplatform SwiftUI application for iOS, iPadOS, and macOS
-- **Technologies**: Swift, SwiftUI, SwiftData
+- **Features**: Ping, Traceroute, WHOIS (RFC 3912 compliant, FreeBSD compatible)
+- **Technologies**: Swift, SwiftUI, SwiftData, Network Framework
 - **Platforms**: iPhone, iPad, macOS
 - **Repository**: https://github.com/lab22poland/neto.git
 

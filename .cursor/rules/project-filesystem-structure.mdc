@@ -1,0 +1,145 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# NETo Project Suite - Complete Filesystem Structure
+
+## 🏗️ PROJECT HIERARCHY OVERVIEW
+
+**Main Workspace**: Project root (neto-suite repository)
+
+```
+./                                          # Main orchestration repository
+├── .git/                                   # Main project git (neto-suite)
+├── .gitmodules                            # Submodule definitions
+├── setup-submodules.sh                   # Setup script
+├── validate-branches.sh                  # Branch validation
+├── netoTests/                            # Main project test files
+│   └── netoTests.swift                   # Comprehensive test suite (887 lines)
+├── neto/                                 # 🎯 NETO APP SUBMODULE
+│   ├── .git                              # Submodule git reference
+│   ├── neto.xcodeproj/                   # Xcode project file
+│   │   ├── project.pbxproj               # Project configuration
+│   │   └── project.xcworkspace/          # Workspace settings
+│   ├── neto/                             # 📱 ACTUAL APP SOURCE CODE
+│   │   ├── netoApp.swift                 # App entry point (22 lines)
+│   │   ├── ContentView.swift             # Main navigation (119 lines)
+│   │   ├── Assets.xcassets/              # App assets
+│   │   ├── neto.entitlements            # Sandbox entitlements
+│   │   ├── [Ping Components]
+│   │   │   ├── PingView.swift           # (149 lines)
+│   │   │   ├── PingManager.swift        # (196 lines)
+│   │   │   ├── PingViewModel.swift      # (102 lines)
+│   │   │   └── PingResult.swift         # (27 lines)
+│   │   ├── [Traceroute Components]
+│   │   │   ├── TracerouteView.swift     # (313 lines)
+│   │   │   ├── TracerouteManager.swift  # (450 lines)
+│   │   │   ├── TracerouteViewModel.swift # (196 lines)
+│   │   │   └── TracerouteResult.swift   # (56 lines)
+│   │   ├── [WHOIS Components]
+│   │   │   ├── WhoisView.swift          # (216 lines)
+│   │   │   ├── WhoisManager.swift       # (317 lines)
+│   │   │   ├── WhoisViewModel.swift     # (111 lines)
+│   │   │   └── WhoisResult.swift        # (71 lines)
+│   │   └── AboutView.swift              # About screen (154 lines)
+│   ├── netoTests/                        # Unit tests (submodule)
+│   │   └── netoTests.swift.backup        # Test backup (467 lines)
+│   └── netoUITests/                      # UI tests (submodule)
+│       ├── netoUITests.swift            # (298 lines)
+│       └── netoUITestsLaunchTests.swift # (35 lines)
+├── netolib/                              # Networking library submodule
+│   ├── .git                              # Submodule git reference
+│   └── README.md                         # Library documentation
+└── netoman/                              # Documentation submodule
+    ├── .git                              # Submodule git reference
+    └── README.md                         # Documentation content
+```
+
+## 🎯 CRITICAL PATH UNDERSTANDING
+
+### When Working with NETo Xcode App:
+- **App Source Code**: `neto/neto/` (double neto!)
+- **Xcode Project**: `neto/neto.xcodeproj/`
+- **Unit Tests**: `neto/netoTests/`
+- **UI Tests**: `neto/netoUITests/`
+
+### Current Working Directory Context:
+- **Shell CWD**: Currently in project root
+- **To reach app source**: `cd neto/neto/` (from project root)
+- **To reach neto submodule**: `cd neto/` (from project root)
+
+## 🔧 GIT REPOSITORY STRUCTURE
+
+### Main Repository (neto-suite):
+- **Location**: `.git/` (project root)
+- **Purpose**: Orchestrates submodules, main project management
+- **Remote**: Main orchestration repository
+
+### Submodule Repositories:
+1. **neto (Xcode app)**:
+   - **Location**: `neto/.git`
+   - **Remote**: https://github.com/lab22poland/neto.git
+   - **Branch**: `main`
+
+2. **netolib (networking library)**:
+   - **Location**: `netolib/.git`
+   - **Remote**: https://github.com/lab22poland/netolib.git
+   - **Branch**: `main`
+
+3. **netoman (documentation)**:
+   - **Location**: `netoman/.git`
+   - **Remote**: https://github.com/lab22poland/netoman.git
+   - **Branch**: `main`
+
+## 📝 FILE OPERATION GUIDELINES
+
+### When Editing Swift Files:
+- **Target Directory**: `neto/neto/` (from project root)
+- **Relative Path**: `neto/neto/[filename].swift`
+
+### When Running Git Commands:
+- **For neto app**: Navigate to `neto/`
+- **For main project**: Stay in project root `./`
+- **For other submodules**: Navigate to `netolib/` or `netoman/`
+
+### When Building/Testing:
+- **Xcode Project**: `neto/neto.xcodeproj`
+- **Unit Tests**: `neto/netoTests/`
+- **UI Tests**: `neto/netoUITests/`
+- **Main Project Tests**: `netoTests/`
+
+## ⚠️ COMMON PATH CONFUSION PREVENTION
+
+### The "Double neto" Structure:
+```
+./                          # Main workspace (neto-suite)
+└── neto/                   # neto submodule directory
+    └── neto/               # Actual Xcode app source directory
+        ├── ContentView.swift
+        ├── WhoisManager.swift
+        └── [other app files]
+```
+
+### Key Path Patterns:
+- **Workspace Root**: `./` (project root)
+- **Submodule Root**: `neto/`
+- **App Source Root**: `neto/neto/`
+- **Current Shell**: Project root
+
+## 🚀 DEVELOPMENT WORKFLOW
+
+### File Editing:
+1. Files are in `neto/neto/` relative to project root
+2. Always use relative paths from project root
+3. Navigate to appropriate directory before operations
+
+### Testing:
+1. **Unit Tests**: Run from Xcode project or `neto/`
+2. **UI Tests**: Run from Xcode project
+3. **Main Project Tests**: Run from project root `./`
+
+### Git Operations:
+1. **App changes**: Commit in `neto/` subdirectory
+2. **Submodule updates**: Update references in project root `./`
+3. **Cross-submodule coordination**: Use project root as base
