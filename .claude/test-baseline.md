@@ -2,32 +2,27 @@
 
 Known test failures used by `/verify` to separate regressions from pre-existing problems. Update it when a fix lands or the baseline is re-recorded.
 
-Recorded 2026-10-11 on neto `7888bb1` (branch `refactor-ping-simpleping`), Xcode 27.0, macOS 26.7.1 host, with the macOS overrides from `neto/CLAUDE.md`.
+Recorded 2026-10-11 on neto branch `refactor-ping-simpleping`, after the ping fix (PR #3). Environment: Xcode 27.0, macOS 26.7.1 host, simulators iPhone 17 and iPad Pro 11-inch (M5) on iOS 26.5. Commands as in `/verify`.
 
-## macOS unit tests (`netoTests`): 57/73 passed
+| Platform | Unit (`netoTests`) | UI (`netoUITests`) |
+|---|---|---|
+| macOS | 66/73 | 13/13 |
+| iPhone 17 | 66/73 | 10/13 |
+| iPad Pro 11-inch (M5) | 66/73 | 13/13 |
 
-Stale tests or logic bugs:
+## Unit tests – same 7 failures on all platforms
+
+Stale tests (planned for the WHOIS PR):
 - `netoTests/networkToolCaseCount()` – expects 4 tools, there are 5 (ARP was added)
-- `netoTests/whoisDomainValidation()` – `site.co.uk` rejected as invalid
-- `netoTests/whoisViewModelDomainValidation()` – `invalid_domain` accepted as valid
-- `WhoisManagerIntegrationTests/whoisManagerMalformedInputs()` – empty input reports success
-- `WhoisManagerIntegrationTests/whoisManagerCountryCodeTLDs()` – UK domain not routed to the Nominet server
-- `WhoisManagerIntegrationTests/whoisManagerDifferentTLDs()` – .org not routed to the PIR server
-- `PingManagerV2Tests/testPingStopMethod` – result callback fires after stop
-- `PingManagerV2Tests/testPingWithZeroCount` – results delivered with count 0
+- `netoTests/whoisViewModelDomainValidation()` – `invalid_domain` is a valid person/org handle by design
+- `WhoisManagerIntegrationTests/whoisManagerCountryCodeTLDs()` – IANA no longer refers `.uk` to Nominet; `.fr` resolves to `whois.nic.fr`
+- `WhoisManagerIntegrationTests/whoisManagerDifferentTLDs()` – IANA refers `.org` to `whois.publicinterestregistry.org`, not `pir.org`
+- `WhoisManagerIntegrationTests/whoisManagerInvalidDomains()` – IANA's "returned 0 objects" reply is missing from the accepted phrases
 
-ICMP ping (host `ping` to 127.0.0.1 and 8.8.8.8 works, so most likely logic or socket handling in the test process):
-- `PingManagerV2Tests/testPingLocalhost` – 1 result instead of 5
-- `PingManagerV2Tests/testPingGoogleDNS` – 1 result instead of 3
-- `PingManagerV2Tests/testPingOperationCancellation` – times out after 1 s
-- `PingManagerV2Tests/testPingWithVeryShortTimeout` – assertion fails (probably the message lacks "timeout")
-- `SimplePingTests/testPingLocalhost`, `SimplePingTests/testPingGoogleDNS`, `SimplePingTests/testDelegateCallbacks` – no delegate callbacks within 5 s
+Code bugs (planned for the WHOIS PR):
+- `netoTests/whoisDomainValidation()` – domain regex allows a single dot, so `site.co.uk` is rejected (and cannot be queried in the UI)
+- `WhoisManagerIntegrationTests/whoisManagerMalformedInputs()` – an empty query is sent to IANA instead of failing as in FreeBSD `whois.c`
 
-Depends on an external WHOIS server response:
-- `WhoisManagerIntegrationTests/whoisManagerInvalidDomains()`
+## UI tests – iPhone only
 
-## macOS UI tests (`netoUITests`): 13/13 passed (~4 min)
-
-## iOS Simulator unit tests: cannot run
-
-`test -only-testing:netoTests` on `iPhone 17` (iOS 26.5): the host app `pl.lab22.neto` fails to launch (`FBSOpenApplicationServiceErrorDomain Code=1`, `RequestDenied`, `RBSRequestErrorDomain Code=5 "Launch failed."`), so the run ends with TEST FAILED and no test executes. Cause not investigated yet. Simulator **builds** succeed.
+`testAppLaunch`, `testMemoryUsage` and `testNavigationBetweenTools` fail on iPhone: `NavigationSplitView` collapses to a stack, so the sidebar and the detail are never visible at the same time. `testAppLaunch` expects the detail placeholder next to the sidebar; the other two cannot find "About" after a tool is opened. Also present before the ping change. Planned for the test audit.
