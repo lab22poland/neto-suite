@@ -1,7 +1,7 @@
 ---
 name: verify
 description: Build the NETo app and run its tests on macOS, an iPhone simulator and an iPad simulator, then compare failures against the baseline. Use after changing code in neto/ or when asked to verify, build or test the app.
-argument-hint: "[ui]  (also run UI tests, ~4 min per platform)"
+argument-hint: "[ui]  (also run UI tests, ~1-1.5 min per platform)"
 ---
 
 Verify the NETo app in `neto/` (relative to the workspace root). Run every command from `neto/`, use `-derivedDataPath /tmp/neto-dd` everywhere, and write full logs to `/tmp/neto-verify-*.log` so that only summaries end up in context. Tests launch the app (macOS windows, Simulator), so tell the user before starting.
