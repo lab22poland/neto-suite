@@ -18,6 +18,7 @@ Project-level Claude Code config (permissions, the `/verify` skill) lives in thi
 
 - Run git commands for app changes inside `neto/` (its own history, branches and remote). Run them in the root only to update submodule pointers.
 - Order: commit (and push) in the submodule first, then in the root `git add neto` and commit (existing root commits look like `Update neto submodule: <summary>`).
+- PR flow (the user's standing instruction): after opening a PR, have a subagent do a code review of the diff; fix what it finds, re-run `/verify`, then squash-merge the PR yourself with `gh pr merge --squash` – no need to wait for the user. New work still starts with a plan the user approves.
 - PRs in `neto` are squash-merged, so the branch commit the root points to never reaches neto `main`. After each such merge, point the root at the squash commit on neto `main` (same content, verify with `git diff <branch-commit> <squash-commit>`) and commit that to root `main`. Only then delete the feature branches; otherwise fresh clones fail `git submodule update`.
 - Every repo uses `main` as its default branch, never `master`. `./validate-branches.sh` checks this, and it reports a failure whenever a feature branch is checked out. `.gitconfig-neto` holds the shared git settings.
 - Do not run `setup-submodules.sh`: it was a one-time bootstrap script and it runs `rm -rf` on the submodule directories.
