@@ -2,13 +2,13 @@
 
 Known test failures used by `/verify` to separate regressions from pre-existing problems. Update it when a fix lands or the baseline is re-recorded.
 
-Recorded 2026-10-12 on neto `main` `7b13b82` (after PR #9). Environment: Xcode 27.0, macOS 26.7.1 host, simulators iPhone 17 and iPad Pro 11-inch (M5) on iOS 26.5. Commands as in `/verify`.
+Recorded 2026-10-12 on neto `main` after PR #10 (ARP follow-up). Environment: Xcode 27.0, macOS 26.7.1 host, simulators iPhone 17 and iPad Pro 11-inch (M5) on iOS 26.5. Commands as in `/verify`.
 
 | Platform | Unit passed | Unit skipped (network) | Unit known issues | UI |
 |---|---|---|---|---|
-| macOS | 65 | 5 | 1 | 6/6 |
-| iPhone 17 | 61 | 5 | 1 | 6/6 |
-| iPad Pro 11-inch (M5) | 61 | 5 | 1 | 6/6 |
+| macOS | 68 | 5 | 1 | 6/6 |
+| iPhone 17 | 60 | 5 | 1 | 6/6 |
+| iPad Pro 11-inch (M5) | 60 | 5 | 1 | 6/6 |
 
 With `TEST_RUNNER_NETO_NETWORK_TESTS=1` on macOS (measured on PR #7): all network tests pass.
 
